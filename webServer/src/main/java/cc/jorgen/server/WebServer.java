@@ -4,6 +4,7 @@ import cc.jorgen.server.api.Multiply;
 import com.atexpose.AtExpose;
 import com.atexpose.api.datatypes.DataType;
 import com.atexpose.dispatcherfactories.WebServerBuilder;
+import io.schinzel.basicutils.configvar.ConfigVar;
 
 /**
  * Purpose of this file is ...
@@ -12,7 +13,7 @@ import com.atexpose.dispatcherfactories.WebServerBuilder;
  */
 public class WebServer {
 
-    private static final int PORT_NUMBER = 5559;
+    private static final String PORT_NUMBER = ConfigVar.create(".env").getValue("PORT");
 
 
     public static void main(String[] args) {
@@ -25,7 +26,7 @@ public class WebServer {
                 .addArgument("Value2", DataType.INT, "");
         //
         atExpose.expose(Multiply.class)
-                .start(WebServerBuilder.create().webServerDir("websites/jorgen").port(PORT_NUMBER).cacheFilesInRAM(false).build());
+                .start(WebServerBuilder.create().webServerDir("websites/jorgen").port(Integer.valueOf(PORT_NUMBER)).cacheFilesInRAM(false).build());
     }
 
 }
