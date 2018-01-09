@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -cp webServer/target/classes:webServer/target/dependency/* cc.jorgen.server.WebServer
+web:    java $JAVA_OPTS -cp target/classes:target/dependency/* cc.jorgen.server.WebServer
