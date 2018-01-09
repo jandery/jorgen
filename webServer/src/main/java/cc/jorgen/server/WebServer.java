@@ -23,7 +23,7 @@ public class WebServer {
                 .addArgument("Value2", DataType.INT, "");
         //
         atExpose.expose(Multiply.class)
-                .start(WebServerBuilder.create().webServerDir("websites/jorgen").build());
+                .start(WebServerBuilder.create().webServerDir("websites/jorgen").cacheFilesInRAM(false).build());
     }
 
 }
