@@ -12,7 +12,8 @@ target/
 
 # IntelliJ files
 *.iml
-# Also IngelliJ. Use this format to be able un-ignore code style settings below
+
+# Also IntelliJ. Use this format to be able un-ignore code style settings below
 .idea/*
 
 # Do not ingore code style settings
