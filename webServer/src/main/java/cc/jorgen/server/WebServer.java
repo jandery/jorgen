@@ -12,6 +12,8 @@ import com.atexpose.dispatcherfactories.WebServerBuilder;
  */
 public class WebServer {
 
+    private static final int PORT_NUMBER = 5559;
+
 
     public static void main(String[] args) {
         AtExpose atExpose = AtExpose.create();
@@ -23,7 +25,7 @@ public class WebServer {
                 .addArgument("Value2", DataType.INT, "");
         //
         atExpose.expose(Multiply.class)
-                .start(WebServerBuilder.create().webServerDir("websites/jorgen").cacheFilesInRAM(false).build());
+                .start(WebServerBuilder.create().webServerDir("websites/jorgen").port(PORT_NUMBER).cacheFilesInRAM(false).build());
     }
 
 }
