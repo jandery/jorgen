@@ -3,6 +3,7 @@ package cc.jorgen.server;
 import cc.jorgen.server.api.Multiply;
 import com.atexpose.AtExpose;
 import com.atexpose.api.datatypes.DataType;
+import com.atexpose.dispatcher.IDispatcher;
 import com.atexpose.dispatcherfactories.WebServerBuilder;
 import io.schinzel.basicutils.configvar.ConfigVar;
 
@@ -26,7 +27,16 @@ public class WebServer {
                 .addArgument("Value2", DataType.INT, "");
         //
         atExpose.expose(Multiply.class)
-                .start(WebServerBuilder.create().webServerDir("websites/jorgen").port(Integer.valueOf(PORT_NUMBER)).cacheFilesInRAM(false).build());
+                .start(getWebServer());
+    }
+
+
+    static IDispatcher getWebServer() {
+        return WebServerBuilder.create()
+                .webServerDir("websites/jorgen")
+                .port(Integer.valueOf(PORT_NUMBER))
+                .cacheFilesInRAM(false)
+                .build();
     }
 
 }
