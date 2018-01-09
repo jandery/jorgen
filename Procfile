@@ -1,1 +1,1 @@
-web:	java $JAVA_OPTS -cp webServer/target/classes:webServer/target/dependency/* cc.jorgen.server.WebServer
+web: java -jar webServer/target/webServer-1.0-SNAPSHOT.jar
