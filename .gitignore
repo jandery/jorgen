@@ -1,11 +1,13 @@
-# OS X system file
-.DS_Store
+*.class
 
-# All target dirs in current and all sub dirs
+# Package Files #
+*.jar
+
+# virtual machine crash logs
+hs_err_pid*
 target/
 
-# IntelliJ files
-*.iml
 
-# Also IntelliJ.
+# IntelliJ
 .idea/
+*.iml
