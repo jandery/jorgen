@@ -2,9 +2,7 @@ package cc.jorgen.server;
 
 import cc.jorgen.server.api.Multiply;
 import com.atexpose.AtExpose;
-import com.atexpose.api.Argument;
 import com.atexpose.api.datatypes.DataType;
-import com.atexpose.dispatcher.IDispatcher;
 import com.atexpose.dispatcherfactories.WebServerBuilder;
 
 /**
@@ -16,9 +14,16 @@ public class WebServer {
 
 
     public static void main(String[] args) {
-        AtExpose.create()
-                .expose(Multiply.class)
-                .start(WebServerBuilder.create().build());
+        AtExpose atExpose = AtExpose.create();
+        //
+        atExpose.getAPI().addLabel("Jorgen", "");
+        //
+        atExpose.getAPI()
+                .addArgument("Value1", DataType.INT, "")
+                .addArgument("Value2", DataType.INT, "");
+        //
+        atExpose.expose(Multiply.class)
+                .start(WebServerBuilder.create().webServerDir("websites/jorgen").build());
     }
 
 }

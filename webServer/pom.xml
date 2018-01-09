@@ -14,7 +14,19 @@
 
     <properties>
         <atexpose.version>0.9.36</atexpose.version>
+        <atexpose.repo.url>http://maven-repo.atexpose.com/release</atexpose.repo.url>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>maven-repo.schinzel.io</id>
+            <url>http://maven-repo.schinzel.io/release</url>
+        </repository>
+        <repository>
+            <id>maven-repo.atexpose.com</id>
+            <url>${atexpose.repo.url}</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>

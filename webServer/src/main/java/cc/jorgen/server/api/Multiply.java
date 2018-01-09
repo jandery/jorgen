@@ -10,12 +10,12 @@ import com.atexpose.Expose;
 public class Multiply {
 
     @Expose(
-            arguments = {"Product", "MultiplyBy"},
+            arguments = {"Value1", "Value2"},
             requiredArgumentCount = 2,
             labels = {"Jorgen"},
             description = "Multiply two ints"
     )
-    public static int Multiply(int product, int multiplyBy) {
-        return product * multiplyBy;
+    public static int Multiply(int value1, int value2) {
+        return value1 * value2;
     }
 }

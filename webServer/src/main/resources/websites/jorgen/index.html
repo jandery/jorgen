@@ -3,10 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Jörgens testsida</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 </head>
 <body>
 
-    HEJ!!!
+    <table>
+        <tr><td>Value 1: </td><td><input id="Value1" type="range" max="100"></td><td>(<span></span>)</td></tr>
+        <tr><td>Value 2: </td><td><input id="Value2" type="range" max="100"></td><td>(<span></span>)</td></tr>
+        <tr><td colspan="3"><hr/></td></tr>
+        <tr><td>Summa: </td><td></td><td id="total"></td></tr>
+    </table>
 
+<script>
+    $("input").on("mouseup", function() {
+        var serverUrl = "//" + document.location.host + "/call/Multiply";
+        var args = {};
+
+        $( 'input[type="range"]' ).each(function( index ) {
+            $('span').eq(index).text($(this).val());
+            args[$(this).attr('id')] = $(this).val();
+        });
+
+        $.ajax({
+            type: "POST",
+            url: serverUrl,
+            data: args,
+            contentType: "application/json; charset=utf-8",
+            cache: false,
+            timeout: 5000
+        })
+            .done(function (response) {
+                $('#total').text(response);
+            })
+            .fail(function (jqXHR, textStatus, errorThrown) {
+                alert('fail');
+            });
+    });
+</script>
 </body>
 </html>
