@@ -1,12 +1,10 @@
-*.class
 
-# Package Files #
-*.jar
-
-# virtual machine crash logs
-hs_err_pid*
+# All target folders
 target/
 
+# Package Files
+*.class
+*.jar
 
 # IntelliJ
 .idea/
