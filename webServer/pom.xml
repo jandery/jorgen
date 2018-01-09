@@ -10,6 +10,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>webServer</artifactId>
+    <packaging>jar</packaging>
 
+    <properties>
+        <atexpose.version>0.9.36</atexpose.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.atexpose</groupId>
+            <artifactId>atexpose</artifactId>
+            <version>${atexpose.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
