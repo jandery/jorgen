@@ -9,6 +9,7 @@
 import spark.Spark.*
 
 fun main(args: Array<String>) {
+
     // File server
     spark.kotlin.staticFiles.location("/site")
     // Rest server
@@ -18,4 +19,5 @@ fun main(args: Array<String>) {
         get("") {req, res -> "All users"}
         get("/:id") {req, res -> "User with id: " + req.params("id")}
     }
+
 }
