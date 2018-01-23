@@ -21,12 +21,17 @@ fun main(args: Array<String>) {
     //
     // Rest server
     path("/api") {
+        // Object for making object to JSON for response
         val gson = Gson()
-
+        //
+        //
         get("/hello") { req, res -> "Hello World" }
         //
+        // Path for users
         path("/users") {
+            // Get all user with get request [http://localhost:4567]/api/users
             get("") { req, res -> "All users" }
+            // Get a user with get request [http://localhost:4567]/api/users/[id for user]
             get("/:id") { req, res ->
                 gson.toJson(User("Jörgen", "Andersson", req.params("id")))
             }

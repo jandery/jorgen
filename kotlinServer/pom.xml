@@ -34,6 +34,11 @@
             <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-js</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
         <!-- kotlinx HTML DOM library (from the repository above) -->
         <dependency>
             <groupId>org.jetbrains.kotlinx</groupId>
@@ -81,7 +86,7 @@
                                     <artifactId>kotlin-stdlib-js</artifactId>
                                     <version>${kotlin.version}</version>
                                     <!-- Without this, the JavaScript file ends up in target folder -->
-                                    <outputDirectory>${project.basedir}/src/cc.jorgen.server.main/resources/site/cdn/js/lib</outputDirectory>
+                                    <outputDirectory>${project.basedir}/src/main/resources/site/cdn/js/lib</outputDirectory>
                                     <includes>*.js</includes>
                                 </artifactItem>
                                 <!-- Download the kotlin-html-js.js and locate in cdn folder under JavaScript libraries -->
@@ -90,7 +95,7 @@
                                     <artifactId>kotlinx-html-js</artifactId>
                                     <version>${kotlinx.version}</version>
                                     <!-- Without this, the JavaScript file ends up in target folder -->
-                                    <outputDirectory>${project.basedir}/src/cc.jorgen.server.main/resources/site/cdn/js/lib</outputDirectory>
+                                    <outputDirectory>${project.basedir}/src/main/resources/site/cdn/js/lib</outputDirectory>
                                     <includes>*.js</includes>
                                 </artifactItem>
                             </artifactItems>
@@ -128,7 +133,7 @@
                                 <source>src/main/kotlinscript</source>
                             </sourceDirs>
                             <!-- Without this, the JavaScript file ends up in target folder -->
-                            <outputFile>${project.basedir}/src/cc.jorgen.server.main/resources/site/cdn/js/compiled.js</outputFile>
+                            <outputFile>${project.basedir}/src/main/resources/site/cdn/js/compiled.js</outputFile>
                         </configuration>
                     </execution>
                     <execution>

@@ -5,7 +5,7 @@ var compiled = function (_, Kotlin) {
   'use strict';
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   function main(args) {
-    println('TADA');
+    println('JavaScript start');
   }
   _.main_kand9s$ = main;
   main([]);

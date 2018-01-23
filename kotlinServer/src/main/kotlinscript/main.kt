@@ -6,5 +6,6 @@
 
 
 fun main(args: Array<String>) {
-    println("TADA")
+    println("JavaScript start")
+    
 }
