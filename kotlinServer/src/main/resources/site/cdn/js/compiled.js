@@ -7,7 +7,10 @@ var compiled = function (_, Kotlin) {
   function main(args) {
     println('JavaScript start');
   }
-  _.main_kand9s$ = main;
+  var package$cc = _.cc || (_.cc = {});
+  var package$jorgen = package$cc.jorgen || (package$cc.jorgen = {});
+  var package$script = package$jorgen.script || (package$jorgen.script = {});
+  package$script.main_kand9s$ = main;
   main([]);
   Kotlin.defineModule('compiled', _);
   return _;

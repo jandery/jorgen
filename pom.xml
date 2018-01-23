@@ -29,7 +29,7 @@
     <build>
         <resources>
             <resource>
-                <directory>src/cc.jorgen.server.main/resources</directory>
+                <directory>src/main/resources</directory>
                 <includes>
                     <include>**/*</include>
                 </includes>

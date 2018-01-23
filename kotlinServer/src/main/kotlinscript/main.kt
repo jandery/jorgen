@@ -7,5 +7,5 @@
 
 fun main(args: Array<String>) {
     println("JavaScript start")
-    
+
 }

@@ -130,7 +130,7 @@
                         <configuration>
                             <!-- From which folders should we read when building/compiling Kotlin to JavaScript -->
                             <sourceDirs>
-                                <source>src/main/kotlinscript</source>
+                                <source>src/main/kotlinscript/cc/jorgen/script</source>
                             </sourceDirs>
                             <!-- Without this, the JavaScript file ends up in target folder -->
                             <outputFile>${project.basedir}/src/main/resources/site/cdn/js/compiled.js</outputFile>
