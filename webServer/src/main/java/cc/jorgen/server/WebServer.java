@@ -4,8 +4,6 @@ import cc.jorgen.config.ConfigVariable;
 import cc.jorgen.socket.ChatSocket;
 import spark.Spark;
 
-
-
 /**
  * Purpose of this file is ...
  * <p>
