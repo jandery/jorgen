@@ -23,29 +23,33 @@ public class ChatSocket {
 
     @OnWebSocketConnect
     public void onConnect(Session session) throws Exception {
-        System.out.println("Session open");
         String username = "User" + nextUserNumber++;
+        System.out.println("Socket open for " + username);
         userUsernameMap.put(session, username);
         broadcastMessage("Server", (username + " joined the chat"));
     }
 
     @OnWebSocketClose
     public void onClose(Session session, int statusCode, String reason) {
-        System.out.println("Session close");
         String username = userUsernameMap.get(session);
+        System.out.println("Socket close for " + username);
         userUsernameMap.remove(session);
         broadcastMessage("Server", (username + " left the chat"));
     }
 
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
-        System.out.println("Session message: " + message);
-        broadcastMessage(userUsernameMap.get(session), message);
+        String username = userUsernameMap.get(session);
+        System.out.println("Socket message from " + username + ", msg: " + message);
+        broadcastMessage(username, message);
     }
 
     private static void broadcastMessage(String sender, String message) {
         userUsernameMap.keySet().stream().filter(Session::isOpen).forEach(session -> {
             try {
+                String username = userUsernameMap.get(session);
+                System.out.println("  Broadcast message '" + message + "' to " + username);
+
                 session.getRemote().sendString(
                         new JSONObject()
                                 .put("message", message)
