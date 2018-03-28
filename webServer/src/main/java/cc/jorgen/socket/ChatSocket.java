@@ -7,6 +7,7 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import org.json.JSONObject;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -54,6 +55,7 @@ public class ChatSocket {
                         new JSONObject()
                                 .put("message", message)
                                 .put("user", sender)
+                                .put("time", new Date())
                                 .put("userlist", userUsernameMap.values()).toString()
                 );
             } catch (Exception e) {
