@@ -1,11 +1,9 @@
 package cc.jorgen.server;
 
-import cc.jorgen.server.api.Multiply;
-import com.atexpose.AtExpose;
-import com.atexpose.api.datatypes.DataType;
-import com.atexpose.dispatcher.IDispatcher;
-import com.atexpose.dispatcherfactories.WebServerBuilder;
-import io.schinzel.basicutils.configvar.ConfigVar;
+import cc.jorgen.config.ConfigVariable;
+import cc.jorgen.socket.ChatSocket;
+import spark.Spark;
+
 
 /**
  * Purpose of this file is ...
@@ -14,29 +12,13 @@ import io.schinzel.basicutils.configvar.ConfigVar;
  */
 public class WebServer {
 
-    private static final String PORT_NUMBER = ConfigVar.create(".env").getValue("PORT");
-
-
     public static void main(String[] args) {
-        AtExpose atExpose = AtExpose.create();
-        //
-        atExpose.getAPI().addLabel("Jorgen", "");
-        //
-        atExpose.getAPI()
-                .addArgument("Value1", DataType.INT, "")
-                .addArgument("Value2", DataType.INT, "");
-        //
-        atExpose.expose(Multiply.class)
-                .start(getWebServer());
+        Spark.port(Integer.parseInt(ConfigVariable.getValue(ConfigVariable.PORT)));
+        Spark.staticFiles.location("/site");
+        Spark.webSocket("/chat", ChatSocket.class);
+
+        System.out.println("***************************************************");
+        System.out.println("**             Running cc.jorgen                 **");
+        System.out.println("***************************************************");
     }
-
-
-    static IDispatcher getWebServer() {
-        return WebServerBuilder.create()
-                .webServerDir("websites/jorgen")
-                .port(Integer.valueOf(PORT_NUMBER))
-                .cacheFilesInRAM(false)
-                .build();
-    }
-
 }

@@ -8,23 +8,24 @@
     <artifactId>jorgen</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+        <argLine>-Xms1g -Xmx1g</argLine>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <assertj.version>3.8.0</assertj.version>
+        <jackson.version>2.9.4.1</jackson.version>
+        <junit.version>4.12</junit.version>
+        <log4j.version>1.7.13</log4j.version>
+        <lombok.version>1.16.18</lombok.version>
+        <spark.version>2.7.1</spark.version>
+        <spark.template.version>2.7.1</spark.template.version>
+        <spark.test.version>1.1.6</spark.test.version>
+    </properties>
+
     <modules>
         <module>webServer</module>
-        <module>kotlinServer</module>
     </modules>
-
-
-    <dependencies>
-        <dependency>
-            <!-- Annotations that generates getters, setters and more that
-            are not visible in source code.
-            https://projectlombok.org/index.html -->
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.18</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 
     <build>
         <resources>
