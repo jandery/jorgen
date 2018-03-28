@@ -24,7 +24,7 @@ public class ChatSocket {
     @OnWebSocketConnect
     public void onConnect(Session session) throws Exception {
         String username = "User" + nextUserNumber++;
-        System.out.println("Socket open for " + username);
+        System.out.println("Session open for " + username);
         userUsernameMap.put(session, username);
         broadcastMessage("Server", (username + " joined the chat"));
     }
@@ -48,7 +48,7 @@ public class ChatSocket {
         userUsernameMap.keySet().stream().filter(Session::isOpen).forEach(session -> {
             try {
                 String username = userUsernameMap.get(session);
-                System.out.println("  Broadcast message '" + message + "' to " + username);
+                System.out.println("  Broadcast message '' to " + username);
 
                 session.getRemote().sendString(
                         new JSONObject()

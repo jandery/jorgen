@@ -1,7 +1,7 @@
 package cc.jorgen.server;
 
-import cc.jorgen.config.ConfigVariable;
 import cc.jorgen.socket.ChatSocket;
+import io.schinzel.basicutils.configvar.ConfigVar;
 import spark.Spark;
 
 /**
@@ -12,7 +12,8 @@ import spark.Spark;
 public class WebServer {
 
     public static void main(String[] args) {
-        Spark.port(Integer.parseInt(ConfigVariable.getValue(ConfigVariable.PORT)));
+        int port = Integer.parseInt(ConfigVar.create(".env").getValue("PORT"));
+        Spark.port(port);
         Spark.staticFiles.location("/site");
         Spark.webSocket("/chat", ChatSocket.class);
 
