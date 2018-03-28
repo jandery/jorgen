@@ -21,6 +21,8 @@ public class WebServer {
             Spark.get("/hello", (request, response) -> "Hello to you too");
         });
 
+        Spark.notFound("<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>Jörgens testsida</title></head><body>Oops! Nothing found</body></html>");
+
         Spark.init();
 
         System.out.println("***************************************************");
