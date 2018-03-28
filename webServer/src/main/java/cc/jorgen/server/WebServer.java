@@ -5,6 +5,7 @@ import cc.jorgen.socket.ChatSocket;
 import spark.Spark;
 
 
+
 /**
  * Purpose of this file is ...
  * <p>
@@ -16,6 +17,12 @@ public class WebServer {
         Spark.port(Integer.parseInt(ConfigVariable.getValue(ConfigVariable.PORT)));
         Spark.staticFiles.location("/site");
         Spark.webSocket("/chat", ChatSocket.class);
+
+        Spark.path("/api", () -> {
+            Spark.get("/hello", (request, response) -> "Hello to you too");
+        });
+
+        Spark.init();
 
         System.out.println("***************************************************");
         System.out.println("**             Running cc.jorgen                 **");
