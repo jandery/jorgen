@@ -1,10 +1,7 @@
 package cc.jorgen.socket;
 
 import org.eclipse.jetty.websocket.api.Session;
-import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
-import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
-import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
-import org.eclipse.jetty.websocket.api.annotations.WebSocket;
+import org.eclipse.jetty.websocket.api.annotations.*;
 import org.json.JSONObject;
 
 import java.util.Date;
@@ -43,6 +40,12 @@ public class ChatSocket {
         String username = userUsernameMap.get(session);
         System.out.println("Socket message from " + username + ", msg: " + message);
         broadcastMessage(username, message);
+    }
+
+    @OnWebSocketError
+    public void throwError(Throwable error) {
+        System.out.println("Socket error");
+        error.printStackTrace();
     }
 
     private static void broadcastMessage(String sender, String message) {
