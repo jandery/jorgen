@@ -11,6 +11,14 @@
 
     <artifactId>webServer</artifactId>
 
+
+    <properties>
+        <schinzel.version>1.31</schinzel.version>
+        <spark.version>2.7.1</spark.version>
+
+    </properties>
+
+
     <repositories>
         <repository>
             <id>maven-repo.schinzel.io</id>
@@ -33,7 +41,7 @@
         <dependency>
             <groupId>io.schinzel</groupId>
             <artifactId>basic-utils</artifactId>
-            <version>1.31</version>
+            <version>${schinzel.version}</version>
         </dependency>
         <!-- TEST INTERNAL -->
         <!-- EXTERNAL  -->

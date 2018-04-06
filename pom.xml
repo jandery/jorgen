@@ -11,6 +11,7 @@
 
     <modules>
         <module>webServer</module>
+        <module>kotlinServer</module>
     </modules>
 
     <properties>
@@ -18,7 +19,6 @@
         <jackson.version>2.9.4.1</jackson.version>
         <junit.version>4.12</junit.version>
         <lombok.version>1.16.18</lombok.version>
-        <spark.version>2.7.1</spark.version>
     </properties>
 
     <build>
