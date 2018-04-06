@@ -23,6 +23,12 @@ fun startServer(args: Array<String>) {
     if (env.equals("development")) {
         Spark.staticFiles.externalLocation(projectDir + staticDir)
     } else {
-        Spark.staticFiles.location("/websites/site")
+        Spark.staticFiles.location("/kotlin/jorgen")
     }
+
+    Spark.path("/api") {
+
+    }
+
+    Spark.init()
 }

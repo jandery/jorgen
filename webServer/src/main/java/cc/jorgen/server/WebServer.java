@@ -14,7 +14,7 @@ public class WebServer {
     public static void main(String[] args) {
         int port = Integer.parseInt(ConfigVar.create(".env").getValue("PORT"));
         Spark.port(port);
-        Spark.staticFiles.location("/websites/jorgen");
+        Spark.staticFiles.location("/java/jorgen");
         Spark.webSocket("/chat", ChatSocket.class);
 
         Spark.path("/api", () -> {

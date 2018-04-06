@@ -17,13 +17,6 @@
     </properties>
 
 
-    <repositories>
-        <repository>
-            <id>maven-repo.schinzel.io</id>
-            <url>http://maven-repo.schinzel.io/release</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <!-- INTERNAL -->
         <dependency>
