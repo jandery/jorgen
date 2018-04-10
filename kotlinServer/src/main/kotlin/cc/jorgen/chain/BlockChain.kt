@@ -1,5 +1,6 @@
 package cc.jorgen.chain
 
+import cc.jorgen.encrypt.HashUtils
 import java.util.Date
 
 /**
@@ -16,7 +17,7 @@ class BlockChain {
                 OfficialDocument("My title", "My text 2", Date(), "Jörgen Andersson"),
                 OfficialDocument("My title", "My text 3", Date(), "Jörgen Andersson"))
 
-        return Block<OfficialDocument>(Date(), docs, 0, "", "")
+        return Block<OfficialDocument>(Date(), docs, 0, "", HashUtils.sha1(""))
     }
 
     fun getTransactionBlock() : Block<Transaction> {
@@ -28,6 +29,6 @@ class BlockChain {
                 Transaction("", "", 100),
                 Transaction("", "", 100))
 
-        return Block<Transaction>(Date(), transactions, 0, "", "")
+        return Block<Transaction>(Date(), transactions, 0, "", HashUtils.sha1(""))
     }
 }
