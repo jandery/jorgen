@@ -12,7 +12,7 @@
 <h3>Buttons</h3>
 
 <button onclick="getStuff()">Other Example</button>
-<br/>
+<br/><br/>
 <button onclick="getLocation()">W3School Example</button>
 
 <script type="text/javascript">
@@ -21,30 +21,13 @@
     }
 
     function getStuff() {
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-                addToLog("Geolocation: " + JSON.stringify(position));
-            },
-            function () {
-                // User need to give permission for the browser to locate you.
-                addToLog("Geolocation: User permission?");
-            });
-
-        navigator.geolocation.getCurrentPosition(
-            function (position) {
-                addToLog("Geolocation with maxAge: " + JSON.stringify(position.coords));
-            },
-            function () {
-                addToLog("Geolocation: User permission?");
-            },
-            // eq 10 minutes
-            {maximumAge: 600000});
+        navigator.geolocation.getCurrentPosition(function (position) {
+            addToLog("Geolocation: " + JSON.stringify(position));
+        });
     }
 
 
     // From https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
-    var x = document.getElementById("demo");
-
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -57,7 +40,6 @@
         addToLog("Latitude: " + position.coords.latitude +
             ", Longitude: " + position.coords.longitude);
     }
-
 
 
 </script>
