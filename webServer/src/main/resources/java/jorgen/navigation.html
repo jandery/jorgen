@@ -8,6 +8,8 @@
 <body>
 
 <div id="log"></div>
+<p id="demo"></p>
+
 
 <script type="text/javascript">
     function addToLog(text) {
@@ -17,7 +19,7 @@
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             function (position) {
-                addToLog("Geolocation: " + JSON.stringify(position));
+                addToLog("Geolocation: " + JSON.stringify(position.coords));
             },
             function () {
                 // User need to give permission for the browser to locate you.
@@ -26,7 +28,7 @@
 
         navigator.geolocation.getCurrentPosition(
             function (position) {
-                addToLog("Geolocation with maxAge: " + JSON.stringify(position));
+                addToLog("Geolocation with maxAge: " + JSON.stringify(position.coords));
             },
             function () {
                 addToLog("Geolocation: User permission?");
@@ -39,12 +41,20 @@
         addToLog("Geolocation: Browser does not accept");
     }
 
-    try {
-        let geo = new GeolocationSensor({ frequency: 1 });
-        addToLog("GS: " + JSON.stringify(geo));
+    // From https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
+    var x = document.getElementById("demo");
 
-    } catch (e) {
-        addToLog("GeololcationSensor: " + e);
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
     }
 
 
