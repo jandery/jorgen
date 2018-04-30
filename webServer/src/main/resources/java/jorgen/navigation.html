@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h3>Log version 5</h3>
+<h3>Log version 6</h3>
 <div id="log"></div>
 <h3>Buttons</h3>
 
@@ -20,11 +20,15 @@
         $("#log").append("<div>" + text + "</div>");
     }
 
-    navigator.geolocation.getCurrentPosition(function (position) {
-        console.log(position);
-        addToLog("Latitude my stuff: " + position.coords.latitude +
-            ", Longitude my stuff: " + position.coords.longitude);
-    });
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            addToLog("Latitude my stuff: " + position.coords.latitude +
+                ", Longitude my stuff: " + position.coords.longitude);
+        },
+        function () {
+            addToLog("TADA");
+        }
+    );
 
 
     // From https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
