@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h3>Log version 2</h3>
+<h3>Log version 3</h3>
 <div id="log"></div>
 <h3>Buttons</h3>
 
@@ -22,6 +22,7 @@
 
     function getStuff() {
         navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position);
             addToLog("Geolocation: " + JSON.stringify(position.coords));
         });
     }
@@ -37,6 +38,7 @@
     }
 
     function showPosition(position) {
+        console.warn(position);
         addToLog("Latitude: " + position.coords.latitude +
             ", Longitude: " + position.coords.longitude);
     }
