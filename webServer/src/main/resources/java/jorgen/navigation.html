@@ -7,19 +7,23 @@
 </head>
 <body>
 
+<h3>Log</h3>
 <div id="log"></div>
-<p id="demo">TADA</p>
-<button onclick="getLocation()">Try It</button>
+<h3>Buttons</h3>
+
+<button onclick="getStuff()">Other Example</button>
+<br/>
+<button onclick="getLocation()">W3School Example</button>
 
 <script type="text/javascript">
     function addToLog(text) {
         $("#log").append("<div>" + text + "</div>");
     }
 
-    if (navigator.geolocation) {
+    function getStuff() {
         navigator.geolocation.getCurrentPosition(
             function (position) {
-                addToLog("Geolocation: " + JSON.stringify(position.coords));
+                addToLog("Geolocation: " + JSON.stringify(position));
             },
             function () {
                 // User need to give permission for the browser to locate you.
@@ -35,11 +39,8 @@
             },
             // eq 10 minutes
             {maximumAge: 600000});
-
-    } else {
-        // Browser doesn't support Geolocation
-        addToLog("Geolocation: Browser does not accept");
     }
+
 
     // From https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
     var x = document.getElementById("demo");
@@ -48,13 +49,13 @@
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            addToLog("Geolocation is not supported by this browser.");
         }
     }
 
     function showPosition(position) {
-        x.innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
+        addToLog("Latitude: " + position.coords.latitude +
+            ", Longitude: " + position.coords.longitude);
     }
 
 
