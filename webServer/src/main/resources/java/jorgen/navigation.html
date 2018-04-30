@@ -40,7 +40,7 @@
     }
 
     try {
-        var geo = new GeolocationSensor({ frequency: 1 });
+        let geo = new GeolocationSensor({ frequency: 1 });
         addToLog("GS: " + JSON.stringify(geo));
 
     } catch (e) {
