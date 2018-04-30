@@ -7,13 +7,8 @@
 </head>
 <body>
 
-<h3>Log version 6</h3>
+<h3>Log version 7</h3>
 <div id="log"></div>
-<h3>Buttons</h3>
-
-<button onclick="getStuff()">Other Example</button>
-<br/><br/>
-<button onclick="getLocation()">W3School Example</button>
 
 <script type="text/javascript">
     function addToLog(text) {
@@ -22,30 +17,13 @@
 
     navigator.geolocation.getCurrentPosition(
         function (position) {
-            addToLog("Latitude my stuff: " + position.coords.latitude +
-                ", Longitude my stuff: " + position.coords.longitude);
+            addToLog("Latitude: " + position.coords.latitude +
+                ", Longitude: " + position.coords.longitude);
         },
         function () {
-            addToLog("TADA");
+            addToLog("Geolocation not supported with http request or not accepted by Browser. For Chrome, got to Settings -> Advances -> Privacy and Security -> Content Settings -> Locaction -> and make sure you have Ask Before Accessing and address is not in Blocked list.");
         }
     );
-
-
-    // From https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            addToLog("Geolocation is not supported by this browser.");
-        }
-    }
-
-    function showPosition(position) {
-        console.warn(position);
-        addToLog("Latitude: " + position.coords.latitude +
-            ", Longitude: " + position.coords.longitude);
-    }
-
 
 </script>
 </body>
