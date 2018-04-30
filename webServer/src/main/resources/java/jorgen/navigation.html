@@ -15,12 +15,25 @@
     }
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            addToLog("Geolocation: " + JSON.stringify(position));
-        }, function() {
-            // User need to give permission for the browser to locate you.
-            addToLog("Geolocation: User permission?");
-        });
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                addToLog("Geolocation: " + JSON.stringify(position));
+            },
+            function () {
+                // User need to give permission for the browser to locate you.
+                addToLog("Geolocation: User permission?");
+            });
+
+        navigator.geolocation.getCurrentPosition(
+            function (position) {
+                addToLog("Geolocation with maxAge: " + JSON.stringify(position));
+            },
+            function () {
+                addToLog("Geolocation: User permission?");
+            },
+            // eq 10 minutes
+            {maximumAge: 600000});
+
     } else {
         // Browser doesn't support Geolocation
         addToLog("Geolocation: Browser does not accept");
