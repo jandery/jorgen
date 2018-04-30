@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h3>Log version 3</h3>
+<h3>Log version 4</h3>
 <div id="log"></div>
 <h3>Buttons</h3>
 
@@ -20,17 +20,16 @@
         $("#log").append("<div>" + text + "</div>");
     }
 
-    function getStuff() {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(position);
-            addToLog("Geolocation: " + JSON.stringify(position.coords));
-        });
+    navigator.geolocation.getCurrentPosition(function (position) {
+        console.log(position);
+        addToLog("Latitude my stuff: " + position.coords.latitude +
+            ", Longitude my stuff: " + position.coords.longitude);
     }
 
 
     // From https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
     function getLocation() {
-            if (navigator.geolocation) {
+        if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
             addToLog("Geolocation is not supported by this browser.");
