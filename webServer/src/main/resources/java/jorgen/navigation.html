@@ -39,6 +39,15 @@
         addToLog("Geolocation: Browser does not accept");
     }
 
+    try {
+        var geo = new GeolocationSensor({ frequency: 1 });
+        addToLog("GS: " + JSON.stringify(geo));
+
+    } catch (e) {
+        addToLog("GeololcationSensor: " + e);
+    }
+
+
 
 </script>
 </body>
