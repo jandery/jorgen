@@ -1,7 +1,6 @@
 package cc.jorgen.chain
 
 import cc.jorgen.encrypt.HashUtils
-import java.time.LocalDateTime
 
 /**
  * Purpose of this file is ...
@@ -17,9 +16,9 @@ class BlockChain {
         val documentChain = mutableListOf<Block<OfficialDocument>>()
         val transactionChain = mutableListOf<Block<Transaction>>()
 
-        fun addDocumentBlock(docs : List<OfficialDocument>) {
-            val previousHash = if(documentChain.isEmpty()) "" else documentChain.last().hash
-            val nounce : Long = 0
+        fun addDocumentBlock(docs: List<OfficialDocument>) {
+            val previousHash = if (documentChain.isEmpty()) "" else documentChain.last().hash
+            val nounce: Long = 0
             //
             documentChain.add(Block<OfficialDocument>(
                     previousHash,
@@ -32,8 +31,8 @@ class BlockChain {
         }
 
         fun addTransactionBlock(transactions: List<Transaction>) {
-            val previousHash = if(transactionChain.isEmpty()) "" else transactionChain.last().hash
-            val nounce : Long = 0
+            val previousHash = if (transactionChain.isEmpty()) "" else transactionChain.last().hash
+            val nounce: Long = 0
             //
             transactionChain.add(Block<Transaction>(
                     previousHash,
@@ -41,7 +40,7 @@ class BlockChain {
                     nounce,
                     hashContent(
                             previousHash,
-                            transactions.joinToString(),
+                            transactions.joinToString(prefix = "", postfix = "", separator = ""),
                             nounce)))
         }
 
