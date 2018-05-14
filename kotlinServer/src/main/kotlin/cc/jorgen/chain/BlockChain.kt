@@ -10,44 +10,45 @@ import java.time.LocalDateTime
  */
 class BlockChain {
 
-    fun getDocumentBlock(): Block<OfficialDocument> {
+    /**
+     * Statics
+     */
+    companion object {
+        val documentChain = mutableListOf<Block<OfficialDocument>>()
+        val transactionChain = mutableListOf<Block<Transaction>>()
 
-        val docs = listOf<OfficialDocument>(
-                OfficialDocument("My title", "My text 1", LocalDateTime.now(), "Jörgen Andersson"),
-                OfficialDocument("My title", "My text 2", LocalDateTime.now(), "Jörgen Andersson"),
-                OfficialDocument("My title", "My text 3", LocalDateTime.now(), "Jörgen Andersson"))
+        fun addDocumentBlock(docs : List<OfficialDocument>) {
+            val previousHash = if(documentChain.isEmpty()) "" else documentChain.last().hash
+            val nounce : Long = 0
+            //
+            documentChain.add(Block<OfficialDocument>(
+                    previousHash,
+                    docs,
+                    nounce,
+                    hashContent(
+                            previousHash,
+                            docs.joinToString(prefix = "", postfix = "", separator = ""),
+                            nounce)))
+        }
 
-        return Block<OfficialDocument>(
-                "",
-                docs,
-                0,
-                hashContent(
-                        "",
-                        docs.joinToString(prefix = "", postfix = "", separator = ""),
-                        0))
-    }
+        fun addTransactionBlock(transactions: List<Transaction>) {
+            val previousHash = if(transactionChain.isEmpty()) "" else transactionChain.last().hash
+            val nounce : Long = 0
+            //
+            transactionChain.add(Block<Transaction>(
+                    previousHash,
+                    transactions,
+                    nounce,
+                    hashContent(
+                            previousHash,
+                            transactions.joinToString(),
+                            nounce)))
+        }
 
-    fun getTransactionBlock(): Block<Transaction> {
 
-        val transactions = listOf<Transaction>(
-                Transaction("", "", 100),
-                Transaction("", "", 100),
-                Transaction("", "", 100),
-                Transaction("", "", 100),
-                Transaction("", "", 100))
-
-        return Block<Transaction>(
-                "",
-                transactions,
-                0,
-                hashContent(
-                        "",
-                        transactions.joinToString(),
-                        0))
-    }
-
-    private fun hashContent(previousHash: String, content: String, nounce: Int): String {
-        val source = "${previousHash}${content}${nounce}"
-        return HashUtils.sha1(source)
+        private fun hashContent(previousHash: String, content: String, nounce: Long): String {
+            val source = "${previousHash}${content}${nounce}"
+            return HashUtils.sha1(source)
+        }
     }
 }
