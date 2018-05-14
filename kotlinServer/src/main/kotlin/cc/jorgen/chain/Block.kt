@@ -1,6 +1,6 @@
 package cc.jorgen.chain
 
-import java.util.Date
+import java.time.LocalDateTime
 
 /**
  * Purpose of this file is ...
@@ -8,12 +8,11 @@ import java.util.Date
  * Created by Jorgen Andersson on 2018-04-06.
  */
 data class Block<T : Any>(
-        val date: Date,
+        val previousHash: String,
         val data: List<T>,
         val nonce: Long,
-        val previousHash: String,
         val hash: String)
 
-data class OfficialDocument(val title : String, val text : String, val created: Date, val createdBy : String)
+data class OfficialDocument(val title : String, val text : String, val created: LocalDateTime, val createdBy : String)
 
 data class Transaction(val from : String, val to : String, val amount : Int)
