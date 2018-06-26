@@ -1,6 +1,8 @@
 package cc.jorgen
 
 import cc.jorgen.webServer.WebServer
+import io.schinzel.basicutils.configvar.ConfigVar
+import io.schinzel.basicutils.configvar.IConfigVar
 
 /**
  * Purpose of this file is ...
@@ -9,7 +11,8 @@ import cc.jorgen.webServer.WebServer
  */
 fun main(args: Array<String>) {
 
-    val port = 5656
+    val config : IConfigVar = ConfigVar.create(".env")
+    val port = Integer.parseInt(config.getValue("PORT"))
     val filesLocation = "/www"
 
     WebServer(port = port, filesLocation = filesLocation)
