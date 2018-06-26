@@ -1,4 +1,4 @@
-package cc.jorgen.chain
+package blockChain
 
 import cc.jorgen.encrypt.HashUtils
 

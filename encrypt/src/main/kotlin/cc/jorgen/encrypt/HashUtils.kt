@@ -8,11 +8,9 @@ import java.security.MessageDigest
  * Created by Jorgen Andersson on 2018-04-09.
  */
 object HashUtils {
-    fun sha512(input: String) = hashString("SHA-512", input)
-
-    fun sha256(input: String) = hashString("SHA-256", input)
-
     fun sha1(input: String) = hashString("SHA-1", input)
+    fun sha512(input: String) = hashString("SHA-512", input)
+    fun sha256(input: String) = hashString("SHA-256", input)
 
     private fun hashString(type: String, input: String): String {
         val HEX_CHARS = "0123456789ABCDEF"
