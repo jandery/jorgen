@@ -1,4 +1,4 @@
-package blockChain
+package cc.jorgen.blockChain
 
 import java.time.LocalDateTime
 
@@ -7,7 +7,7 @@ import java.time.LocalDateTime
  *
  * Created by Jorgen Andersson on 2018-04-06.
  */
-data class Block<T : Any>(
+data class Block<T>(
         val previousHash: String,
         val data: List<T>,
         val nonce: Long,

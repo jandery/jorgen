@@ -1,4 +1,4 @@
-package blockChain
+package cc.jorgen.blockChain
 
 import cc.jorgen.encrypt.HashUtils
 
@@ -20,7 +20,7 @@ class BlockChain {
             val previousHash = if (documentChain.isEmpty()) "" else documentChain.last().hash
             val nounce: Long = 0
             //
-            documentChain.add(Block<OfficialDocument>(
+            documentChain.add(Block(
                     previousHash,
                     docs,
                     nounce,
@@ -34,7 +34,7 @@ class BlockChain {
             val previousHash = if (transactionChain.isEmpty()) "" else transactionChain.last().hash
             val nounce: Long = 0
             //
-            transactionChain.add(Block<Transaction>(
+            transactionChain.add(Block(
                     previousHash,
                     transactions,
                     nounce,

@@ -1,5 +1,6 @@
 package cc.jorgen
 
+import cc.jorgen.data.connection.MongoConnection
 import cc.jorgen.webServer.WebServer
 import io.schinzel.basicutils.configvar.ConfigVar
 import io.schinzel.basicutils.configvar.IConfigVar
@@ -14,6 +15,8 @@ fun main(args: Array<String>) {
     val config : IConfigVar = ConfigVar.create(".env")
     val port = Integer.parseInt(config.getValue("PORT"))
     val filesLocation = "/www"
+
+    MongoConnection.setConnection(config.getValue("MONGOHQ_URL"))
 
     WebServer(port = port, filesLocation = filesLocation)
 
