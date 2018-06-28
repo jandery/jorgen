@@ -23,11 +23,7 @@ class BlockChain {
             documentChain.add(Block(
                     previousHash,
                     docs,
-                    nounce,
-                    hashContent(
-                            previousHash,
-                            docs.joinToString(prefix = "", postfix = "", separator = ""),
-                            nounce)))
+                    nounce))
         }
 
         fun addTransactionBlock(transactions: List<Transaction>) {
@@ -37,17 +33,7 @@ class BlockChain {
             transactionChain.add(Block(
                     previousHash,
                     transactions,
-                    nounce,
-                    hashContent(
-                            previousHash,
-                            transactions.joinToString(prefix = "", postfix = "", separator = ""),
-                            nounce)))
-        }
-
-
-        private fun hashContent(previousHash: String, content: String, nounce: Long): String {
-            val source = "${previousHash}${content}${nounce}"
-            return HashUtils.sha1(source)
+                    nounce))
         }
     }
 }
