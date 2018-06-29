@@ -13,8 +13,6 @@
 
     <modules>
         <module>webServer</module>
-        <module>blockChain</module>
-        <module>encrypt</module>
         <module>common</module>
         <module>data</module>
     </modules>
@@ -26,7 +24,6 @@
         <junit.version>4.12</junit.version>
         <kmongo.version>3.6.3</kmongo.version>
         <kotlin.version>1.2.50</kotlin.version>
-        <lombok.version>1.16.18</lombok.version>
         <schinzel.version>1.31</schinzel.version>
         <spark.version>1.0.0-alpha</spark.version>
     </properties>
