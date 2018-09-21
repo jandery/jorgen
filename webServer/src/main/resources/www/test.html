@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: "Roboto Condensed", "Lucida Grande", sans-serif;
+        }
+        div.frame {
+            padding: 20px; margin-top: 20px; border: 1px solid green;
+            max-width: 600px;
+        }
+    </style>
+    <!-- JavaScript library -->
+    <script type="text/javascript" src="js/libs/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/libs/vue-2.5.3.min.js"></script>
+    <!-- Vue Components -->
+    <script type="text/javascript" src="js/vue/sliderRound.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            var mVue = new Vue({
+                el: "#app",
+                data() {
+                    return {
+                        celcius: 0
+                    }
+                },
+                computed: {
+                    farenheit() {
+                        return (this.celcius * 1.8) + 32.0;
+                    }
+                },
+                methods: {
+                    onTemp(value) {
+                        this.celcius = value / 360;
+
+                        // one lap 100 C
+                        if(this.celcius < 273) this.celcius = 273
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div id="app">
+
+    <div class="frame" data-name="Round svg slider">
+        <casaferre-svg-slider-round :size-px="150" :move="onTemp" :done="onTemp"></casaferre-svg-slider-round>
+        <div>{{celcius}} C</div>
+        <div>{{farenheit}} F</div>
+    </div>
+</div>
+
+</body>
+</html>
