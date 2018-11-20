@@ -35,11 +35,16 @@
 
         function clickButton() {
             console.log(theComponent);
-            theComponent.getData();
+            let ex = theComponent.getData();
+            console.log(ex);
         }
     </script>
 </head>
 <body>
+
+<input type="text" value="Should not be included"/>
+<input type="text" value="Should not be included"/>
+<br/><br/><br/>
 
 <jorgen-bucket id="third"></jorgen-bucket>
 

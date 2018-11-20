@@ -30,6 +30,7 @@ class JorgenBucket extends HTMLElement {
     getData() {
         let inputs = this.shadowRoot.querySelectorAll("input");
         console.log("There are " + inputs.length + " inputs in element");
+        return new example(inputs[0].value, inputs[1].value, parseInt(inputs[2].value));
     }
 
     get firstName() {
