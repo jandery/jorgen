@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: "Roboto Condensed", "Lucida Grande", sans-serif;
+        }
+        div.frame {
+            padding: 20px; margin-top: 20px; border: 1px solid green;
+            max-width: 600px;
+        }
+    </style>
+    <!-- JavaScript library -->
+    <script type="text/javascript" src="js/libs/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/components/extend.js"></script>
+
+    <script type="text/javascript">
+        class example {
+            constructor(firstName, lastName, age) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+                this.age = age;
+            }
+        }
+
+        let theComponent = null;
+
+        jQuery(document).ready(function () {
+            theComponent = document.getElementById("third");
+            console.log(theComponent);
+            theComponent.setData(new example("Jojje", "Andersson", 53));
+        });
+
+        function clickButton() {
+            console.log(theComponent);
+            theComponent.getData();
+        }
+    </script>
+</head>
+<body>
+
+<jorgen-bucket id="third"></jorgen-bucket>
+
+<button onclick="clickButton()">get stuff</button>
+</body>
+</html>
