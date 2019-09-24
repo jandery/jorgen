@@ -25,7 +25,8 @@
         <kmongo.version>3.6.3</kmongo.version>
         <kotlin.version>1.2.50</kotlin.version>
         <schinzel.version>1.31</schinzel.version>
-        <spark.version>1.0.0-alpha</spark.version>
+        <spark.version>2.9.0</spark.version>
+        <spark.template.version>2.7.1</spark.template.version>
     </properties>
 
 
