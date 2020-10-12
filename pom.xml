@@ -21,7 +21,7 @@
     <properties>
         <assertj.version>3.8.0</assertj.version>
         <jackson.version>2.9.5</jackson.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <kmongo.version>3.6.3</kmongo.version>
         <kotlin.version>1.2.50</kotlin.version>
         <schinzel.version>1.31</schinzel.version>
